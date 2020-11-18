@@ -1,0 +1,18 @@
+---
+version: "3"
+
+services:
+  virtuoso_4844:
+    image: tenforce/virtuoso:latest
+    container_name: Virtuoso
+    restart: always
+    ports:
+      - "8890:8890"
+      - "1111:1111"
+    environment:
+      SPARQL_UPDATE: '"true"'
+      DBA_PASSWORD: '"password"'
+      DEFAULT_GRAPH: '"https://github.com/PjotrSvetachov/GraphVR/example-graph"'
+    volumes:
+      - ./db:/data
+      - ./ToLoad/:/data/ToLoad/
