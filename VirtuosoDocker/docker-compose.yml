@@ -14,5 +14,5 @@ services:
       DBA_PASSWORD: '"password"'
       DEFAULT_GRAPH: '"https://github.com/PjotrSvetachov/GraphVR/example-graph"'
     volumes:
-      - ./db:/data
       - ./ToLoad/:/data/ToLoad/
+      - ./db:/data

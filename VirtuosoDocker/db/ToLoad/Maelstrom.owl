@@ -1,0 +1,1390 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY obo "http://purl.obolibrary.org/obo/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY gg "http://www.maelstrom.org/ontology/2020/10/" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.maelstrom.org/ontology/2020/10/"
+     xml:base="http://www.maelstrom.org/ontology/2020/10/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:gg="http://www.maelstrom.org/ontology/2020/10/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://www.maelstrom.org/ontology/2020/10/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/EUPATH_0000755 -->
+
+    <owl:AnnotationProperty rdf:about="&obo;EUPATH_0000755">
+        <rdfs:label>variable</rdfs:label>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Network_Study -->
+
+    <owl:AnnotationProperty rdf:about="&gg;Network_Study"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/EUPATH_0000755 -->
+
+    <owl:ObjectProperty rdf:about="&obo;EUPATH_0000755">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label>variable</rdfs:label>
+        <rdfs:range rdf:resource="&obo;NCIT_C142192"/>
+        <rdfs:domain rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Network_Study -->
+
+    <owl:ObjectProperty rdf:about="&gg;Network_Study">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:range rdf:resource="&obo;SEPIO_0000125"/>
+        <rdfs:domain rdf:resource="&gg;Networks"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/NCIT_C142192 -->
+
+    <owl:Class rdf:about="&obo;NCIT_C142192">
+        <rdfs:label>Study Variable</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/SEPIO_0000125 -->
+
+    <owl:Class rdf:about="&obo;SEPIO_0000125">
+        <rdfs:label>research study</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ALSA -->
+
+    <owl:Class rdf:about="&gg;ALSA">
+        <rdfs:label>Australian Longitudinal Study of Ageing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ATHLOS -->
+
+    <owl:Class rdf:about="&gg;ATHLOS">
+        <rdfs:subClassOf rdf:resource="&gg;Networks"/>
+        <Network_Study rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ATTICA -->
+
+    <owl:Class rdf:about="&gg;ATTICA">
+        <rdfs:label>The ATTICA Study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+        <obo:EUPATH_0000755 rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ATTICA_Variables -->
+
+    <owl:Class rdf:about="&gg;ATTICA_Variables">
+        <rdfs:subClassOf rdf:resource="&obo;NCIT_C142192"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Athlos_Studies -->
+
+    <owl:Class rdf:about="&gg;Athlos_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/BRAIN_Studies -->
+
+    <owl:Class rdf:about="&gg;BRAIN_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/BioSHaRE-EU_Studies -->
+
+    <owl:Class rdf:about="&gg;BioSHaRE-EU_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/CHARLS -->
+
+    <owl:Class rdf:about="&gg;CHARLS">
+        <rdfs:label>The China Health and Retirement Longitudinal Study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/CHPT_Studies -->
+
+    <owl:Class rdf:about="&gg;CHPT_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/COHORTS.SE_Studies -->
+
+    <owl:Class rdf:about="&gg;COHORTS.SE_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/COSMIC_Studies -->
+
+    <owl:Class rdf:about="&gg;COSMIC_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/COURAGE_in_Europe -->
+
+    <owl:Class rdf:about="&gg;COURAGE_in_Europe">
+        <rdfs:label>Collaborative Research on Ageing in Europe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/CVD_10_yr -->
+
+    <owl:Class rdf:about="&gg;CVD_10_yr">
+        <rdfs:label>CVD during 10-years follow-up
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/CanPath_Studies -->
+
+    <owl:Class rdf:about="&gg;CanPath_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/CauseD10 -->
+
+    <owl:Class rdf:about="&gg;CauseD10">
+        <rdfs:label>Cause of Death
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/DDetah10 -->
+
+    <owl:Class rdf:about="&gg;DDetah10">
+        <rdfs:label>Death Date
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/DM -->
+
+    <owl:Class rdf:about="&gg;DM">
+        <rdfs:label>Diabetes Mellitus at baseline
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/DM10 -->
+
+    <owl:Class rdf:about="&gg;DM10">
+        <rdfs:label>Diabetes 2012
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/DM5 -->
+
+    <owl:Class rdf:about="&gg;DM5">
+        <rdfs:label>Diabetes 2006
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/DM_10y_incidence -->
+
+    <owl:Class rdf:about="&gg;DM_10y_incidence">
+        <rdfs:label>Diabetes 2012
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Death10 -->
+
+    <owl:Class rdf:about="&gg;Death10">
+        <rdfs:label>Death
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ELSA -->
+
+    <owl:Class rdf:about="&gg;ELSA">
+        <rdfs:label>English Longitudinal Study of Ageing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ENRICA -->
+
+    <owl:Class rdf:about="&gg;ENRICA">
+        <rdfs:label>Study on Nutrition and Cardiovascular Risk in Spain</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ETS -->
+
+    <owl:Class rdf:about="&gg;ETS">
+        <rdfs:label>Passive smoking
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/FU -->
+
+    <owl:Class rdf:about="&gg;FU">
+        <rdfs:label>Time to follow up (years)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/GRIP_Studies -->
+
+    <owl:Class rdf:about="&gg;GRIP_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HAPIEE -->
+
+    <owl:Class rdf:about="&gg;HAPIEE">
+        <rdfs:label>The Health, Alcohol and Psychosocial Factors in Eastern Europe Study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HCHOL -->
+
+    <owl:Class rdf:about="&gg;HCHOL">
+        <rdfs:label>Hypercholesterolemia at baseline
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HCHOL10 -->
+
+    <owl:Class rdf:about="&gg;HCHOL10">
+        <rdfs:label>Did doctor ever informed you that you had elevated blood lipid level (HCHOL)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HCHOL5 -->
+
+    <owl:Class rdf:about="&gg;HCHOL5">
+        <rdfs:label>Hypercholesterolemia 2006</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HCHOL_10y_incidence -->
+
+    <owl:Class rdf:about="&gg;HCHOL_10y_incidence">
+        <rdfs:label>Hypercholesterolemia 2012</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HRS -->
+
+    <owl:Class rdf:about="&gg;HRS">
+        <rdfs:label>Health and Retirement Study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HTN -->
+
+    <owl:Class rdf:about="&gg;HTN">
+        <rdfs:label>Hypertension at baseline</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HTN10 -->
+
+    <owl:Class rdf:about="&gg;HTN10">
+        <rdfs:label>Did doctor ever informed you that you had hypertension</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HTN5 -->
+
+    <owl:Class rdf:about="&gg;HTN5">
+        <rdfs:label>Hypertension 2006</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HTN_10y_incidence -->
+
+    <owl:Class rdf:about="&gg;HTN_10y_incidence">
+        <rdfs:label>Hypertension 2012</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/HellenicSCORE -->
+
+    <owl:Class rdf:about="&gg;HellenicSCORE">
+        <rdfs:label>Hellenic SCORE risk predicted CVD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/IALSA_Studies -->
+
+    <owl:Class rdf:about="&gg;IALSA_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/JSTAR -->
+
+    <owl:Class rdf:about="&gg;JSTAR">
+        <rdfs:label>Japanese Study of Aging and Retirement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/LASA -->
+
+    <owl:Class rdf:about="&gg;LASA">
+        <rdfs:label> Longitudinal Aging Study Amsterdam</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/MINDMAP_Studies -->
+
+    <owl:Class rdf:about="&gg;MINDMAP_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/MORGAM_Studies -->
+
+    <owl:Class rdf:about="&gg;MORGAM_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/MSMDC_Studies -->
+
+    <owl:Class rdf:about="&gg;MSMDC_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/MedDiet -->
+
+    <owl:Class rdf:about="&gg;MedDiet">
+        <rdfs:label>mediterranean diet score</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/NEAR_Studies -->
+
+    <owl:Class rdf:about="&gg;NEAR_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Name -->
+
+    <owl:Class rdf:about="&gg;Name">
+        <rdfs:label>Label</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Networks -->
+
+    <owl:Class rdf:about="&gg;Networks"/>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/Occupation -->
+
+    <owl:Class rdf:about="&gg;Occupation">
+        <rdfs:label>Type of occupation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/PhysAct_level -->
+
+    <owl:Class rdf:about="&gg;PhysAct_level">
+        <rdfs:label>physical activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/QSC_Studies -->
+
+    <owl:Class rdf:about="&gg;QSC_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/RIFA_Studies -->
+
+    <owl:Class rdf:about="&gg;RIFA_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ReACH_Studies -->
+
+    <owl:Class rdf:about="&gg;ReACH_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/SAGE -->
+
+    <owl:Class rdf:about="&gg;SAGE">
+        <rdfs:label>WHO Study on Global Ageing and Adult Health</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/SCOREclass -->
+
+    <owl:Class rdf:about="&gg;SCOREclass">
+        <rdfs:label>Score of social class</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/SES -->
+
+    <owl:Class rdf:about="&gg;SES">
+        <rdfs:label>Socioeconomic status</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/SHARE -->
+
+    <owl:Class rdf:about="&gg;SHARE">
+        <rdfs:label>Survey of Health, Ageing and Retirement in Europe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/SPIRIT_Studies -->
+
+    <owl:Class rdf:about="&gg;SPIRIT_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/TILDA -->
+
+    <owl:Class rdf:about="&gg;TILDA">
+        <rdfs:label>Irish Longitudinal Study on Ageing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/YearOfDeathFU -->
+
+    <owl:Class rdf:about="&gg;YearOfDeathFU">
+        <rdfs:label>Year of death or End of follow-up</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/age -->
+
+    <owl:Class rdf:about="&gg;age">
+        <rdfs:label>Age of Subjects
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/amiloide -->
+
+    <owl:Class rdf:about="&gg;amiloide">
+        <rdfs:label>SAA (mg/dl)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/bmi -->
+
+    <owl:Class rdf:about="&gg;bmi">
+        <rdfs:label>Body Mass Index (kg/m2)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/bmi_grou -->
+
+    <owl:Class rdf:about="&gg;bmi_grou">
+        <rdfs:label>BMI group
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/bmr -->
+
+    <owl:Class rdf:about="&gg;bmr">
+        <rdfs:label>Basic Metabolic Rhythm
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ca_hydra -->
+
+    <owl:Class rdf:about="&gg;ca_hydra">
+        <rdfs:label>Carbon-hydrates intake (g/day)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/cds -->
+
+    <owl:Class rdf:about="&gg;cds">
+        <rdfs:label>Cognitive Distortion scale
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/child -->
+
+    <owl:Class rdf:about="&gg;child">
+        <rdfs:label>Number of children
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/cholest -->
+
+    <owl:Class rdf:about="&gg;cholest">
+        <rdfs:label>Total serum cholesterol (mg/dl)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/cig_day -->
+
+    <owl:Class rdf:about="&gg;cig_day">
+        <rdfs:label>Number of cigaretes by day
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/crp -->
+
+    <owl:Class rdf:about="&gg;crp">
+        <rdfs:label>C-reactive protein (mg/L)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/cursmok -->
+
+    <owl:Class rdf:about="&gg;cursmok">
+        <rdfs:label>Smoking at 2001-2002
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/date10 -->
+
+    <owl:Class rdf:about="&gg;date10">
+        <rdfs:label>Date of 10 year follow up
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/dbp -->
+
+    <owl:Class rdf:about="&gg;dbp">
+        <rdfs:label>diastolic blood pressure
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/directio -->
+
+    <owl:Class rdf:about="&gg;directio">
+        <rdfs:label>direction (Subscale of Hostility)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/dm_group -->
+
+    <owl:Class rdf:about="&gg;dm_group">
+        <rdfs:label>Diabetes (2001-2002)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/educat -->
+
+    <owl:Class rdf:about="&gg;educat">
+        <rdfs:label>Years of school
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ei_bmr -->
+
+    <owl:Class rdf:about="&gg;ei_bmr">
+        <rdfs:label>BMR (Basal Metabolic Rate)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ellis -->
+
+    <owl:Class rdf:about="&gg;ellis">
+        <rdfs:label>Ellis irrational beliefs scale
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/energy -->
+
+    <owl:Class rdf:about="&gg;energy">
+        <rdfs:label>Energy intake (kcal/day)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/entry -->
+
+    <owl:Class rdf:about="&gg;entry">
+        <rdfs:label>Entry code
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ep -->
+
+    <owl:Class rdf:about="&gg;ep">
+        <rdfs:label>Menstruation
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/euCanSHare_Studies -->
+
+    <owl:Class rdf:about="&gg;euCanSHare_Studies">
+        <rdfs:subClassOf rdf:resource="&obo;SEPIO_0000125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/exercise06 -->
+
+    <owl:Class rdf:about="&gg;exercise06">
+        <rdfs:label>exercise 2006
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/exercise_type -->
+
+    <owl:Class rdf:about="&gg;exercise_type">
+        <rdfs:label>type of exercise
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/extrover -->
+
+    <owl:Class rdf:about="&gg;extrover">
+        <rdfs:label>extroverted (Subscale of Hostility)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/fam_chd -->
+
+    <owl:Class rdf:about="&gg;fam_chd">
+        <rdfs:label>Family history of Cardiovascular Disease
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/fam_dm -->
+
+    <owl:Class rdf:about="&gg;fam_dm">
+        <rdfs:label>Familial history of Diabetes Mellitus
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/famhisth_HTN -->
+
+    <owl:Class rdf:about="&gg;famhisth_HTN">
+        <rdfs:label>family history of hypertension
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/family -->
+
+    <owl:Class rdf:about="&gg;family">
+        <rdfs:label>Marital status
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/fibrinog -->
+
+    <owl:Class rdf:about="&gg;fibrinog">
+        <rdfs:label>Fibrinogen (mg/dl)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/financia -->
+
+    <owl:Class rdf:about="&gg;financia">
+        <rdfs:label>Financial status</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/glucose -->
+
+    <owl:Class rdf:about="&gg;glucose">
+        <rdfs:label>Blood glucose levels (mg/dl)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/hdho -->
+
+    <owl:Class rdf:about="&gg;hdho">
+        <rdfs:label>Hostility scale (HDHQ)
+</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/hdl -->
+
+    <owl:Class rdf:about="&gg;hdl">
+        <rdfs:label>HDL-cholesterol (mg/dl)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/height -->
+
+    <owl:Class rdf:about="&gg;height">
+        <rdfs:label>Height of Subjects (cm)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/hip -->
+
+    <owl:Class rdf:about="&gg;hip">
+        <rdfs:label>Periphery (cm)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/homa_b -->
+
+    <owl:Class rdf:about="&gg;homa_b">
+        <rdfs:label>Homeostasis model assessment Î²-cell function</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/homa_r -->
+
+    <owl:Class rdf:about="&gg;homa_r">
+        <rdfs:label>Insulin resistance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/homocys -->
+
+    <owl:Class rdf:about="&gg;homocys">
+        <rdfs:label>Homocysteine (Î¼mol/L)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/htn_group -->
+
+    <owl:Class rdf:about="&gg;htn_group">
+        <rdfs:label>Hypertension (2001-2002)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/il_6 -->
+
+    <owl:Class rdf:about="&gg;il_6">
+        <rdfs:label>interleukin 6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/insulin -->
+
+    <owl:Class rdf:about="&gg;insulin">
+        <rdfs:label>Insulin levels (Î¼U/ml)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/introver -->
+
+    <owl:Class rdf:about="&gg;introver">
+        <rdfs:label>introverted (Subscale of Hostility)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/ldl -->
+
+    <owl:Class rdf:about="&gg;ldl">
+        <rdfs:label>idl_cholesterol</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/lpa -->
+
+    <owl:Class rdf:about="&gg;lpa">
+        <rdfs:label>Lp(a) (mg/dl)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/mets -->
+
+    <owl:Class rdf:about="&gg;mets">
+        <rdfs:label>Met-minutes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/mufa -->
+
+    <owl:Class rdf:about="&gg;mufa">
+        <rdfs:label>Mono-unsaturated lipids (g/day)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pa_level -->
+
+    <owl:Class rdf:about="&gg;pa_level">
+        <rdfs:label>Physical Activities Level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pc_cahydra -->
+
+    <owl:Class rdf:about="&gg;pc_cahydra">
+        <rdfs:label>Percent of carbonhydrate intake</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pc_mufa -->
+
+    <owl:Class rdf:about="&gg;pc_mufa">
+        <rdfs:label>Percent of MUFA intake</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pc_protein -->
+
+    <owl:Class rdf:about="&gg;pc_protein">
+        <rdfs:label>Percent of protein intake</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pc_pufa -->
+
+    <owl:Class rdf:about="&gg;pc_pufa">
+        <rdfs:label>Percent of PUFA</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pc_sfa -->
+
+    <owl:Class rdf:about="&gg;pc_sfa">
+        <rdfs:label>Percent of SFA</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pc_tfat -->
+
+    <owl:Class rdf:about="&gg;pc_tfat">
+        <rdfs:label>Percent total fat intake</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pck_years -->
+
+    <owl:Class rdf:about="&gg;pck_years">
+        <rdfs:label>Pack of cigarettes smoking</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pilowski -->
+
+    <owl:Class rdf:about="&gg;pilowski">
+        <rdfs:label>IBQ (Pilowski and Spence) hypochondriasis scale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/protein -->
+
+    <owl:Class rdf:about="&gg;protein">
+        <rdfs:label>Protein intake (g/day)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pufa -->
+
+    <owl:Class rdf:about="&gg;pufa">
+        <rdfs:label>Poly-unsaturated lipids (g/day)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/pulsepressure -->
+
+    <owl:Class rdf:about="&gg;pulsepressure">
+        <rdfs:label>pulse pressure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/quicki -->
+
+    <owl:Class rdf:about="&gg;quicki">
+        <rdfs:label>Quantitative insulin sensitivity check index (QUICKI)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/s_fa -->
+
+    <owl:Class rdf:about="&gg;s_fa">
+        <rdfs:label>Saturated lipids (g/day)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/sbp -->
+
+    <owl:Class rdf:about="&gg;sbp">
+        <rdfs:label>systolic blood pressure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/sex -->
+
+    <owl:Class rdf:about="&gg;sex">
+        <rdfs:label>Sex of Subjects</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/smoker06 -->
+
+    <owl:Class rdf:about="&gg;smoker06">
+        <rdfs:label>smoking habits 2006</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/smoking -->
+
+    <owl:Class rdf:about="&gg;smoking">
+        <rdfs:label>Smoking habits ever</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/spielb -->
+
+    <owl:Class rdf:about="&gg;spielb">
+        <rdfs:label>Spielberg Anxiety (STAI) scale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/t_fat -->
+
+    <owl:Class rdf:about="&gg;t_fat">
+        <rdfs:label>Total fat (g/day)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/tgl -->
+
+    <owl:Class rdf:about="&gg;tgl">
+        <rdfs:label>Triglycerides (mg/dl)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/tnf_a -->
+
+    <owl:Class rdf:about="&gg;tnf_a">
+        <rdfs:label>tumor necrosis factor_a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/typcigar -->
+
+    <owl:Class rdf:about="&gg;typcigar">
+        <rdfs:label>Type of cigarettes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/w_t_hr -->
+
+    <owl:Class rdf:about="&gg;w_t_hr">
+        <rdfs:label>Waist to hip ratio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/waist -->
+
+    <owl:Class rdf:about="&gg;waist">
+        <rdfs:label>Waist (cm)</rdfs:label>
+        <rdfs:label>Weight of Subjects (Kg)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/weight -->
+
+    <owl:Class rdf:about="&gg;weight">
+        <rdfs:label>Weight of Subjects (Kg)</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/year_smo -->
+
+    <owl:Class rdf:about="&gg;year_smo">
+        <rdfs:label>Smoking years</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/zung -->
+
+    <owl:Class rdf:about="&gg;zung">
+        <rdfs:label>Zung Depression scale</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;ATTICA_Variables"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.maelstrom.org/ontology/2020/10/10/66 -->
+
+    <owl:Class rdf:about="&gg;10/66">
+        <rdfs:label>The 10/66 Dementia Research Group Population-Based Cohort Study</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&gg;Athlos_Studies"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&gg;ALSA"/>
+            <rdf:Description rdf:about="&gg;ATTICA"/>
+            <rdf:Description rdf:about="&gg;CHARLS"/>
+            <rdf:Description rdf:about="&gg;COURAGE_in_Europe"/>
+            <rdf:Description rdf:about="&gg;ELSA"/>
+            <rdf:Description rdf:about="&gg;ENRICA"/>
+            <rdf:Description rdf:about="&gg;HAPIEE"/>
+            <rdf:Description rdf:about="&gg;HRS"/>
+            <rdf:Description rdf:about="&gg;JSTAR"/>
+            <rdf:Description rdf:about="&gg;LASA"/>
+            <rdf:Description rdf:about="&gg;SAGE"/>
+            <rdf:Description rdf:about="&gg;SHARE"/>
+            <rdf:Description rdf:about="&gg;TILDA"/>
+            <rdf:Description rdf:about="&gg;10/66"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
