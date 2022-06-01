@@ -42,6 +42,51 @@ public class Graph : MonoBehaviour
     return newGraph;
   }
 
+  public Graph ConstructGraphViaTriples(string results, Vector3 position, Quaternion rotation)
+  {
+    
+    Graph newGraph = Main.instance.CreateGraph();
+    newGraph.parentGraph = this;
+    subGraphs.Add(newGraph);
+    newGraph.transform.position = position;
+    newGraph.transform.rotation = rotation;
+    newGraph = BuildByQueryPatternAndResults(newGraph, selection, results);
+    return newGraph;
+  }
+
+  private Graph BuildByQueryPatternAndResults(Graph graph, List<Edge> queryPattern, string results)
+  {
+    string[] lines = results.Split(" .");
+    graph.Clear();
+    Debug.Log("=========");
+    foreach (string line in lines)
+    {
+      if (line.Length > 5)
+      {
+        string trimedLine = line.Trim();
+        string subject = trimedLine.Split("> <")[0].Substring(1);
+        string predicate = trimedLine.Split("> <")[1];
+        string myObject = trimedLine.Split("> ")[2];
+
+        if (myObject[0] == '<')
+        {
+          myObject = myObject.Substring(1, myObject.Length-2);
+        }
+        Debug.Log("subject: " + subject);
+        Debug.Log("predicate: " + predicate);
+        Debug.Log("object: " + myObject);
+
+        graph.CreateEdge(
+          graph.CreateNode(subject, Vector3.zero),
+          predicate,
+          graph.CreateNode(myObject, Vector3.zero)
+        );
+      }
+    }
+    graph.layout.CalculateLayout();
+    return graph;
+  }
+
   public void QuerySimilarPatternsSingleLayer()
   {
     string triples = GetTriplesString();
@@ -87,6 +132,7 @@ public class Graph : MonoBehaviour
   public void QuerySimilarPatternsMultipleLayers()
   {
     string triples = GetTriplesString();
+    
     void QuerySimilarPatternsMultipleLayersCallback(SparqlResultSet results, string query)
     {
       UnityMainThreadDispatcher.Instance().Enqueue(() =>
@@ -102,7 +148,7 @@ public class Graph : MonoBehaviour
             constructQuery = constructQuery.Replace("?" + node.Key, RealNodeValue(node.Value));
           }
 
-          Graph newGraph = QuerySimilarWithTriples(constructQuery, offset, Quaternion.identity);
+          Graph newGraph = ConstructGraphViaTriples(constructQuery, offset, Quaternion.identity);
           offset += rotation * new Vector3(0, 0, 0.5f);
           SetupNewGraph(newGraph, query, rotation, results);
         }
@@ -535,3 +581,4 @@ public class Graph : MonoBehaviour
     activeLayout.enabled = true;
   }
 }
+

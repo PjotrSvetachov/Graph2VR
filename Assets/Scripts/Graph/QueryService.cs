@@ -93,6 +93,7 @@ public class QueryService : MonoBehaviour
 
   public void QueryByTriples(string triples, GraphCallback queryCallback)
   {
+    Debug.Log("triples: " + triples);
     string query = $@"
             {PREFIXES}
             construct {{
