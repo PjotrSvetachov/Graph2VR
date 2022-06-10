@@ -87,6 +87,7 @@ public class AutocompleteHandeler : MonoBehaviour
   private void SearchCallback(SparqlResultSet results, object state)
   {
     Debug.Log("SearchCallback");
+    Debug.Log(results);
     UnityMainThreadDispatcher.Instance().Enqueue(() =>
     {
       ClearUIItems();

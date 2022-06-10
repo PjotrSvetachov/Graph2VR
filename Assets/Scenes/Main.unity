@@ -733,6 +733,7 @@ GameObject:
   - component: {fileID: 1503421651}
   - component: {fileID: 1503421654}
   - component: {fileID: 1503421655}
+  - component: {fileID: 1503421660}
   - component: {fileID: 1503421658}
   - component: {fileID: 1503421659}
   m_Layer: 0
@@ -1087,6 +1088,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eabe2a73c516614f8f9a91dadc5937e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1503421660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503421650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ee01eceec121f4fbf5d19a49bf613f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRemote: 1
 --- !u!1 &1812040979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,10 +1276,12 @@ MonoBehaviour:
   BaseURI: http://dbpedia.org
   DefaultNodeCreationURI: http://graph2vr.org/newNode#
   DefaultEdgeCreationURI: http://graph2vr.org/newEdge#
-  initialSparqlQueryString: construct {?s ?p ?o}  where  {?s ?p ?o} Limit 100
+  initialSparqlQueryString: construct {?s ?p ?o}  where  {?s ?p ?o} Limit 10
   initialSparqlURI: https://dbpedia.org/resource/Mount_Everest
   StartWithSingleNode: 0
   SearchOnKeypress: 0
+  StartWithTTL: 1
+  TTLfileToLoad: EUCANModel
   ImagePredicates:
   - http://xmlns.com/foaf/0.1/depiction
   - http://xmlns.com/foaf/0.1/Image

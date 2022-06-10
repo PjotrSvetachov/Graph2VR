@@ -1,3 +1,4 @@
+using Dweiss;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -423,7 +424,6 @@ public class Graph : MonoBehaviour
     if (from.uri != null && from.uri != "" && from.uri == to.uri)
     {
       edge.lineType = Edge.LineType.Circle;
-      Debug.Log("Found self referencing edge");
     }
 
     // Check if edge overlaps with an other
@@ -591,5 +591,17 @@ public class Graph : MonoBehaviour
     BaseLayoutAlgorithm activeLayout = GetComponent<T>() as BaseLayoutAlgorithm;
     layout = activeLayout;
     activeLayout.enabled = true;
+  }
+
+  public void LoadTTL()
+  {
+    IGraph iGraph = new VDS.RDF.Graph();
+    TextAsset data = Resources.Load<TextAsset>("Databases/" + Settings.Instance.TTLfileToLoad);
+    Debug.Log("Databases/" + Settings.Instance.TTLfileToLoad);
+    Debug.Log(data);
+    Debug.Log(data.text);
+    iGraph.LoadFromString(data.text);
+    QueryDatabase.Instance.UseInternalGraph(iGraph);
+    //BuildByIGraph(iGraph);
   }
 }

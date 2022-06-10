@@ -31,6 +31,9 @@ namespace Dweiss
     public bool StartWithSingleNode = false;
     public bool SearchOnKeypress = false;
 
+    public bool StartWithTTL = false;
+    public string TTLfileToLoad = "";
+
     public string[] ImagePredicates = { "http://xmlns.com/foaf/0.1/depiction", "http://xmlns.com/foaf/0.1/Image", "http://xmlns.com/foaf/0.1/thumbnail", "http://dbpedia.org/property/photo" };
 
     private void Awake()

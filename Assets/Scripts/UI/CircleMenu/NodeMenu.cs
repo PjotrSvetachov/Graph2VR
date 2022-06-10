@@ -221,7 +221,7 @@ public class NodeMenu : MonoBehaviour
     {
       Settings.Instance.BaseURI = "http://dbpedia.org";
       Settings.Instance.SparqlEndpoint = "https://dbpedia.org/sparql";
-      QueryService.Instance.SwitchEndpoint();
+      QueryDatabase.Instance.UseRemote();
       Close();
     });
 
@@ -229,7 +229,14 @@ public class NodeMenu : MonoBehaviour
     {
       Settings.Instance.BaseURI = "https://github.com/PjotrSvetachov/GraphVR/example-graph";
       Settings.Instance.SparqlEndpoint = "http://localhost:8890/sparql";
-      QueryService.Instance.SwitchEndpoint();
+      QueryDatabase.Instance.UseRemote();
+      Close();
+    });
+
+    cm.AddButton("Switch to internal database", Color.green / 2, () =>
+    {
+      Graph graph = Main.instance.CreateGraph();
+      graph.LoadTTL();
       Close();
     });
 

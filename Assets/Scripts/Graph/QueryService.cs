@@ -14,22 +14,17 @@ public class QueryService : MonoBehaviour
 {
   public int queryLimit = 25;
   const string PREFIXES = @"
+    prefix owl: <http://www.w3.org/2002/07/owl#>
     prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
     prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>";
 
   public INamespaceMapper defaultNamespace = new NamespaceMapper(true);
 
-  SparqlRemoteEndpoint endPoint = null;
+
   private void Awake()
   {
     SetupSingelton();
     AddDefaultNamespaces();
-    SwitchEndpoint();
-  }
-
-  public void SwitchEndpoint()
-  {
-    this.endPoint = GetEndPoint();
   }
 
   private void AddDefaultNamespaces()
@@ -45,7 +40,7 @@ public class QueryService : MonoBehaviour
   {
     try
     {
-      endPoint.QueryWithResultGraph(query, queryCallback, state: null);
+      QueryDatabase.Instance.QueryWithResultGraph(query, queryCallback);
     }
     catch (RdfQueryException error)
     {
@@ -57,7 +52,7 @@ public class QueryService : MonoBehaviour
   public void ExpandGraph(Node node, string uri, bool isOutgoingLink, GraphCallback queryCallback)
   {
     string query = GetExpandGraphQuery(node, uri, isOutgoingLink);
-    endPoint.QueryWithResultGraph(query, queryCallback, state: null);
+    QueryDatabase.Instance.QueryWithResultGraph(query, queryCallback);
   }
 
   private string GetExpandGraphQuery(Node node, string uri, bool isOutgoingLink)
@@ -119,32 +114,32 @@ public class QueryService : MonoBehaviour
   {
     string query = $@"
       {PREFIXES}
-      select distinct ?p (STR(COUNT(?o)) AS ?count) STR(?label) AS ?label 
+      select distinct ?p (STR(COUNT(?o)) AS ?count) STR(?label2) AS ?label 
       where {{
         <{URI}> ?p ?o .
         OPTIONAL {{
-          ?p rdfs:label ?label
+          ?p rdfs:label ?label2
         }}
-        FILTER(LANG(?label) = '' || LANGMATCHES(LANG(?label), '{Main.instance.languageCode}')) 
+        FILTER(LANG(?label2) = '' || LANGMATCHES(LANG(?label2), '{Main.instance.languageCode}')) 
       }}
-      ORDER BY ?label ?p LIMIT 100";
-    endPoint.QueryWithResultSet(query, sparqlResultsCallback, state: null);
+      ORDER BY ?label2 ?p LIMIT 100";
+    QueryDatabase.Instance.QueryWithResultSet(query, sparqlResultsCallback);
   }
 
   public void GetIncomingPredicats(string URI, SparqlResultsCallback sparqlResultsCallback)
   {
     string query = $@"
       {PREFIXES}
-      select distinct ?p (STR(COUNT(?s)) AS ?count) STR(?label) AS ?label 
+      select distinct ?p (STR(COUNT(?s)) AS ?count) STR(?label2) AS ?label 
       where {{ 
         ?s ?p <{URI}> . 
         OPTIONAL {{
-          ?p rdfs:label ?label
+          ?p rdfs:label ?label2
         }}
-        FILTER(LANG(?label) = '' || LANGMATCHES(LANG(?label), '{Main.instance.languageCode}')) 
+        FILTER(LANG(?label2) = '' || LANGMATCHES(LANG(?label2), '{Main.instance.languageCode}')) 
       }} 
-      ORDER BY ?label ?p LIMIT 100";
-    endPoint.QueryWithResultSet(query, sparqlResultsCallback, state: null);
+      ORDER BY ?label2 ?p LIMIT 100";
+    QueryDatabase.Instance.QueryWithResultSet(query, sparqlResultsCallback);
   }
 
   private Boolean IsConstructSparqlQuery(string query)
@@ -175,7 +170,7 @@ public class QueryService : MonoBehaviour
   public void GetDescriptionAsync(string URI, GraphCallback callback)
   {
     string query = "describe <" + URI + ">";
-    endPoint.QueryWithResultGraph(query, callback, null);
+    QueryDatabase.Instance.QueryWithResultGraph(query, callback);
   }
 
   public void QuerySimilarPatternsMultipleLayers(string triples, OrderedDictionary orderByList, Action<SparqlResultSet, string> callback)
@@ -188,10 +183,10 @@ public class QueryService : MonoBehaviour
         {triples}
       }} {order} LIMIT {queryLimit}";
 
-    endPoint.QueryWithResultSet(query, (SparqlResultSet results, object state) =>
+    QueryDatabase.Instance.QueryWithResultSet(query, (SparqlResultSet results, object state) =>
     {
       callback(results, query);
-    }, null);
+    });
   }
 
 
@@ -208,6 +203,7 @@ public class QueryService : MonoBehaviour
       FILTER REGEX(?name, '{searchterm}')
       }}
       GROUP BY ?entity ?name ORDER BY DESC(?score) LIMIT 4";*/
+
       string query = $@"
       {PREFIXES}
       select distinct ?uri ?name 
@@ -217,7 +213,27 @@ public class QueryService : MonoBehaviour
       FILTER REGEX(?name, '{searchterm}')
       }}
       LIMIT 5";
-      endPoint.QueryWithResultSet(query, callback, state: null);
+
+      query = $@"
+      {PREFIXES}
+      Select Distinct ?uri ?name
+      where{{
+      ?uri rdfs:label ?name.
+      Filter(Contains(?name, '{searchterm}')). 
+      }}
+      Limit 10";
+      /*
+      query = $@"
+      Select Distinct ?uri ?name
+      where{{
+      ?uri rdfs:label ?name.
+      ?name bif:contains '{searchterm}'.
+      }}
+      Limit 10";
+      */
+      Debug.Log(searchterm);
+      Debug.Log(query);
+      QueryDatabase.Instance.QueryWithResultSet(query, callback);
     }
     else
     {
@@ -240,11 +256,6 @@ public class QueryService : MonoBehaviour
     {
       return "";
     }
-  }
-
-  private SparqlRemoteEndpoint GetEndPoint()
-  {
-    return new SparqlRemoteEndpoint(new Uri(Settings.Instance.SparqlEndpoint), Settings.Instance.BaseURI);
   }
 
   #region  Singleton

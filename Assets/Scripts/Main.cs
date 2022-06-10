@@ -12,6 +12,11 @@ public class Main : MonoBehaviour
   void Start()
   {
     mainGraph = CreateGraph();
+    if (Settings.Instance.StartWithTTL)
+    {
+      mainGraph.LoadTTL();
+    }
+
     if (Settings.Instance.StartWithSingleNode)
     {
       mainGraph.CreateNode(Settings.Instance.initialSparqlURI, Vector3.zero);
