@@ -56,7 +56,7 @@ public class QueryDatabase : MonoBehaviour
       object result = internalEndPoint.ExecuteQuery(query);
       Debug.Log(result);
       Debug.Log((result as SparqlResultSet).Count);
-      foreach (var r in result as SparqlResultSet)
+      foreach (SparqlResult r in result as SparqlResultSet)
       {
         Debug.Log(r.ToString());
       }

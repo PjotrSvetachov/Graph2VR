@@ -71,7 +71,7 @@ public class QueryService : MonoBehaviour
                 <{nodeUriString}> <{uri}> ?object .
                 OPTIONAL {{
                     ?object rdfs:label ?objectlabel .
-                    FILTER(LANG(?objectlabel) = '' || LANGMATCHES(LANG(?objectlabel), '{Main.instance.languageCode}'))
+                    FILTER(LANG(?objectlabel) = '' || LANGMATCHES(LANG(?objectlabel), '{Settings.Instance.languageCode}'))
                 }}
                 OPTIONAL {{
                   ?object a ?type .
@@ -120,7 +120,7 @@ public class QueryService : MonoBehaviour
         OPTIONAL {{
           ?p rdfs:label ?label2
         }}
-        FILTER(LANG(?label2) = '' || LANGMATCHES(LANG(?label2), '{Main.instance.languageCode}')) 
+        FILTER(LANG(?label2) = '' || LANGMATCHES(LANG(?label2), '{Settings.Instance.languageCode}')) 
       }}
       ORDER BY ?label2 ?p LIMIT 100";
     QueryDatabase.Instance.QueryWithResultSet(query, sparqlResultsCallback);
@@ -136,7 +136,7 @@ public class QueryService : MonoBehaviour
         OPTIONAL {{
           ?p rdfs:label ?label2
         }}
-        FILTER(LANG(?label2) = '' || LANGMATCHES(LANG(?label2), '{Main.instance.languageCode}')) 
+        FILTER(LANG(?label2) = '' || LANGMATCHES(LANG(?label2), '{Settings.Instance.languageCode}')) 
       }} 
       ORDER BY ?label2 ?p LIMIT 100";
     QueryDatabase.Instance.QueryWithResultSet(query, sparqlResultsCallback);

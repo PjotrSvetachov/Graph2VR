@@ -351,7 +351,7 @@ public class Node : MonoBehaviour
     }
     else
     {
-      this.label = label.Replace("@" + Main.instance.languageCode, "");
+      this.label = label.Replace("@" + Settings.Instance.languageCode, "");
       cachedNodeLabel = this.label;
     }
     UpdateDisplay();
@@ -359,7 +359,7 @@ public class Node : MonoBehaviour
 
   private string GetVariableLabel(string label)
   {
-    return GetVariableLabelPrefix(label) + label.Replace("@" + Main.instance.languageCode, "");
+    return GetVariableLabelPrefix(label) + label.Replace("@" + Settings.Instance.languageCode, "");
   }
 
   private string GetVariableLabelPrefix(string label)

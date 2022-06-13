@@ -3,8 +3,6 @@ using Dweiss;
 
 public class Main : MonoBehaviour
 {
-  public string languageCode = "en";
-
   static public Main instance;
   public Graph mainGraph = null;
   public GameObject graphPrefab;
