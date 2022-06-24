@@ -95,6 +95,8 @@ public class GraphInteract : MonoBehaviour
     Node node = graphToAddNode.CreateNode(Settings.Instance.defaultNodeCreationURI + nodeCreationCounter, transform.position);
     nodeCreationCounter++;
     node.MakeVariable();
+
+    Message.instance.AddMessage("Created a new Node!");
   }
 
   void HandleHoveredObject(GameObject newHoveredObject)
