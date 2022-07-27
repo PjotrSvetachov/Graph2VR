@@ -64,24 +64,28 @@ public class HierarchicalView : BaseLayoutAlgorithm
     }
   }
 
-  private void SetHierarchicaLevels(Node node)
+  private void SetHierarchicaLevels(Node startNode)
   {
-    List<Node> nodesToCall = new();
-    foreach (Edge edge in node.connections)
-    {
-      Node other = Utils.GetPartnerNode(node, edge);
-      int edgeDirection = FindEdgeDirection(node, edge);
+    Queue<Node> nodes = new Queue<Node>();
+    nodes.Enqueue(startNode);
 
-      if (!other.hierarchicalSettings.levelFound)
+    while (nodes.Count > 0)
+    {
+      var node = nodes.Dequeue();
+
+      foreach (Edge edge in node.connections)
       {
-        other.hierarchicalSettings.SetLevel(node.hierarchicalSettings.level + edgeDirection);
-        nodesToCall.Add(other);
+        Node other = Utils.GetPartnerNode(node, edge);
+        int edgeDirection = FindEdgeDirection(node, edge);
+
+        if (!other.hierarchicalSettings.levelFound)
+        {
+          other.hierarchicalSettings.SetLevel(node.hierarchicalSettings.level + edgeDirection);
+          nodes.Enqueue(other);
+        }
       }
     }
-    foreach (Node n in nodesToCall)
-    {
-      SetHierarchicaLevels(n);
-    }
+
     ShiftHierarchyLevels(GetLowestLevel());
   }
 
@@ -108,35 +112,43 @@ public class HierarchicalView : BaseLayoutAlgorithm
     return lowestLevel;
   }
 
-  public void PositionNodeLayer(Node node, int level, Vector3 offset)
+  private void PositionNodeLayer(Node startNode, int level, Vector3 offset)
   {
-    int nextLevel = level + 1;
-    int previousLevel = level - 1;
-    int amountOfChildNodesNextLevel = CountOfChildsForLevel(node, nextLevel);
-    int amountOfChildNodesPreviousLevel = CountOfChildsForLevel(node, previousLevel);
+    startNode.hierarchicalSettings.offset = offset;
 
-    Vector3 newOffset = SetNodePosition(node, level, offset);
+    Queue<Node> nodes = new Queue<Node>();
+    nodes.Enqueue(startNode);
 
-    int indexNext = 0;
-    int indexPrevious = 0;
-    foreach (Edge edge in node.connections)
+    while (nodes.Count > 0)
     {
-      Node parnerNode = Utils.GetPartnerNode(node, edge);
+      var node = nodes.Dequeue();
 
-      if (NodeOfLevelNeedsUpdate(parnerNode, nextLevel))
-      {
-        PositionNodeLayer(parnerNode, nextLevel,
-           AddToOffset(nextLevel, newOffset, amountOfChildNodesNextLevel, indexNext)
-        );
-        indexNext++;
-      }
 
-      if (NodeOfLevelNeedsUpdate(parnerNode, previousLevel))
+      int nextLevel = level + 1;
+      int previousLevel = level - 1;
+      int indexNext = 0;
+      int indexPrevious = 0;
+      Vector3 newOffset = SetNodePosition(node, level, node.hierarchicalSettings.offset);
+      int amountOfChildNodesNextLevel = CountOfChildsForLevel(node, nextLevel);
+      int amountOfChildNodesPreviousLevel = CountOfChildsForLevel(node, previousLevel);
+
+      foreach (Edge edge in node.connections)
       {
-        PositionNodeLayer(parnerNode, previousLevel,
-           AddToOffset(previousLevel, newOffset, amountOfChildNodesPreviousLevel, indexPrevious)
-        );
-        indexPrevious++;
+        Node parnerNode = Utils.GetPartnerNode(node, edge);
+
+        if (NodeOfLevelNeedsUpdate(parnerNode, nextLevel))
+        {
+          parnerNode.hierarchicalSettings.offset = AddToOffset(nextLevel, newOffset, amountOfChildNodesNextLevel, indexNext);
+          nodes.Enqueue(parnerNode);
+          indexNext++;
+        }
+
+        if (NodeOfLevelNeedsUpdate(parnerNode, previousLevel))
+        {
+          parnerNode.hierarchicalSettings.offset = AddToOffset(previousLevel, newOffset, amountOfChildNodesPreviousLevel, indexPrevious);
+          nodes.Enqueue(parnerNode);
+          indexPrevious++;
+        }
       }
     }
   }

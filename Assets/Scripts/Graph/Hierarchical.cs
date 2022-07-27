@@ -18,6 +18,7 @@ public class Hierarchical
     typeWithChildNodes = false;
     targetLocation = Vector3.zero;
     hierarchicalType = HierarchicalType.None;
+    offset = Vector3.zero;
   }
 
   public void SetLevel(int level)
@@ -35,6 +36,7 @@ public class Hierarchical
   public float subClassOfOffset = 0;
   public bool typeWithChildNodes = false;
   public Vector3 targetLocation = Vector3.zero;
+  public Vector3 offset = Vector3.zero;
   public HierarchicalType hierarchicalType = HierarchicalType.None;
   public Node Test;
 }
