@@ -19,6 +19,7 @@ public class Graph : MonoBehaviour
   public List<Node> nodeList = new();
   public List<string> translatablePredicates = new();
   public OrderedDictionary orderBy = new();
+  public List<string> groupBy = new();
   public VariableNameManager variableNameManager;
   public List<Edge> selection = new();
 
@@ -106,9 +107,8 @@ public class Graph : MonoBehaviour
         }
       });
     }
-
-    QueryService.Instance.QuerySimilarPatternsMultipleLayers(triples, orderBy, QuerySimilarPatternsMultipleLayersCallback);
-  }
+  QueryService.Instance.QuerySimilarPatternsMultipleLayers(triples, orderBy, groupBy, QuerySimilarPatternsMultipleLayersCallback);
+}
 
   private void SetupNewGraph(Graph newGraph, string query, Quaternion rotation, SparqlResultSet results)
   {
